@@ -1,12 +1,11 @@
 package com.whyalwaysmea.core.authentication;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configurers.ExpressionUrlAuthorizationConfigurer;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.Set;
 
 /**
  * @Author: HanLong
@@ -14,12 +13,11 @@ import java.util.Set;
  * @Description:    搜集所有的AuthorizeConfigProvider
  */
 @Component
-public class MyAuthorizeConfigManager implements AuthorizeConfigManager{
+public class MyAuthorizeConfigManager{
 
     @Autowired
     private List<AuthorizeConfigProvider> authorizeConfigProviders;
 
-    @Override
     public void config(ExpressionUrlAuthorizationConfigurer<HttpSecurity>.ExpressionInterceptUrlRegistry config) {
         for (AuthorizeConfigProvider authorizeConfigProvider : authorizeConfigProviders) {
             authorizeConfigProvider.config(config);

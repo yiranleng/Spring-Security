@@ -1,31 +1,22 @@
 package com.whyalwaysmea.browser.config;
 
-import com.whyalwaysmea.core.authentication.AuthorizeConfigManager;
-import com.whyalwaysmea.core.authentication.sms.AbstractChannelSecurityConfig;
-import com.whyalwaysmea.core.properties.SecurityConstants;
-import com.whyalwaysmea.core.properties.SecurityProperties;
-import com.whyalwaysmea.core.authentication.sms.SmsCodeAuthenticationSecurityConfig;
-import com.whyalwaysmea.core.validate.ValidateCodeFilter;
-import com.whyalwaysmea.core.validate.ValidateCodeSecurityConfig;
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
-import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.security.web.session.InvalidSessionStrategy;
 import org.springframework.security.web.session.SessionInformationExpiredStrategy;
 
-import javax.sql.DataSource;
+import com.whyalwaysmea.core.authentication.MyAuthorizeConfigManager;
+import com.whyalwaysmea.core.authentication.sms.AbstractChannelSecurityConfig;
+import com.whyalwaysmea.core.authentication.sms.SmsCodeAuthenticationSecurityConfig;
+import com.whyalwaysmea.core.properties.SecurityProperties;
+import com.whyalwaysmea.core.validate.ValidateCodeSecurityConfig;
 
 /**
  * @Author: HanLong
@@ -57,7 +48,7 @@ public class BrowerSecurityConfig extends AbstractChannelSecurityConfig {
     private InvalidSessionStrategy invalidSessionStrategy;
 
     @Autowired
-    private AuthorizeConfigManager authorizeConfigManager;
+    private MyAuthorizeConfigManager authorizeConfigManager;
 
     /**
      * 配置TokenRepository
