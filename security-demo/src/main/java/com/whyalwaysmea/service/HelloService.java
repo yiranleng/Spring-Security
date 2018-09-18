@@ -1,11 +1,18 @@
 package com.whyalwaysmea.service;
 
+import org.springframework.stereotype.Service;
+
 /**
  * @Author: HanLong
- * @Date: Create in 2018/3/16 20:50
+ * @Date: Create in 2018/3/16 20:51
  * @Description:
  */
-public interface HelloService {
+@Service
+public class HelloService{
 
-    String greeting(String name);
+    public String greeting(String name) {
+        System.out.println("greeting");
+        return "hello "+name;
+    }
+
 }

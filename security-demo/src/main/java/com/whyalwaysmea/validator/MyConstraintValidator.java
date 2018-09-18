@@ -1,10 +1,11 @@
 package com.whyalwaysmea.validator;
 
-import com.whyalwaysmea.service.HelloService;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.whyalwaysmea.service.HelloService;
 
 /**
  * @Author: HanLong
